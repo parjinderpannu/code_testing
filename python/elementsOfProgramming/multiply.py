@@ -20,7 +20,8 @@ def main():
             result[i+j] += result[i+j+1] // 10
             result[i+j+1] %= 10
 
-    result = result[next(( i for i, x in enumerate(result) if x != 0), len(result)):] or [0]
+    result = result[next(( i for i, x in enumerate(result) 
+                          if x != 0), len(result)):] or [0]
     print(f"****************\nresult={result}") 
 
 def generate_array(no_elements: int, min: int, max: int) -> list[int]:
