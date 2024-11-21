@@ -1,4 +1,5 @@
 import random
+from typing import List  # Import List for type hints
 
 def main():
     a = generate_array_with_duplicate(1,4,4)
@@ -24,12 +25,12 @@ def product_except_self(nums):
 
     return output
 
-def generate_array_with_unique(min_value: int, max_value: int, no_of_elements: int )-> list[int]:
+def generate_array_with_unique(min_value: int, max_value: int, no_of_elements: int )-> List[int]:
     if(no_of_elements > (max_value - min_value + 1)):
         raise ValueError("Number of elements is greater than difference max and min values")
     return random.sample(range( min_value, max_value + 1), no_of_elements)
 
-def generate_array_with_duplicate(min_value: int, max_value: int, no_of_elements: int) -> list[int]:
+def generate_array_with_duplicate(min_value: int, max_value: int, no_of_elements: int) -> List[int]:
     return random.choices(range( min_value, max_value + 1), k=no_of_elements)
 
 if __name__ == "__main__":
