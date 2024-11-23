@@ -60,6 +60,22 @@ class TreeNode:
             if self.left: q.append(self.left)
             if self.right: q.append(self.right)
 
+# Check if Value Exists (DFS) Time: O(n), Space: O(n)
+    def search(self, target):
+        # Base case: Check if the current node's value matches the target
+        if self.val == target:
+            return True
+
+        # Check left child only if it exists
+        left_result = self.left.search(target) if self.left else False
+
+        # Check right child only if it exists
+        right_result = self.right.search(target) if self.right else False
+
+        # Return True if either the left or right subtree contains the target
+        return left_result or right_result
+    
+
 def main():
     # Creating the binary tree
     A = TreeNode(1)
@@ -85,7 +101,10 @@ def main():
     print("Pre-order-iterative Traversal:")
     A.pre_order_iterative() 
     print("Level-order Traversal:")
-    A.level_order()  
+    A.level_order() 
+    print(f"Search(7): {A.search(7)}")
+    print(f"Search(10): {A.search(10)}")
+
 
 if __name__ == "__main__":
     main()
