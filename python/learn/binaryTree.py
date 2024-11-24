@@ -1,6 +1,10 @@
 #           1
 #       2       3
 #     4   5    10
+# Binary Search Trees (BSTs)
+    #         5
+    #     1       8
+    #   -1  3   7   9
 from collections import deque
 class TreeNode:
     def __init__(self, val, left=None, right=None):
@@ -91,7 +95,20 @@ def main():
     B.right = E
     C.left = F
 
+    A2 = TreeNode(5)
+    B2 = TreeNode(1)
+    C2 = TreeNode(8)
+    D2 = TreeNode(-1)
+    E2 = TreeNode(3)
+    F2 = TreeNode(7)
+    G2 = TreeNode(9)
+
+    A2.left, A2.right = B2, C2
+    B2.left, B2.right = D2, E2
+    C2.left, C2.right = F2, G2
+
     print("Root node:", A)
+    print()
     print("Pre-order Traversal:")
     A.pre_order() 
     print("In-order Traversal:")
@@ -104,6 +121,8 @@ def main():
     A.level_order() 
     print(f"Search(7): {A.search(7)}")
     print(f"Search(10): {A.search(10)}")
+    print(f"A2.in_order(): {A2.in_order()}")
+
 
 
 if __name__ == "__main__":
